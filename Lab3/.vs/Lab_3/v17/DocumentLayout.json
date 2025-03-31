@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|d:\\\u043C\u0438\u0430\u043F\u0440\\lab3\\lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|solutionrelative:lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|solutionrelative:lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\lab_3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|solutionrelative:lab_3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{2d7728c2-de0a-45b5-99aa-89b609dfde73}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\MainForm.cs",
+              "RelativeDocumentMoniker": "Lab_3\\MainForm.cs",
+              "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\MainForm.cs",
+              "RelativeToolTip": "Lab_3\\MainForm.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCIAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T21:22:36.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\MainForm.cs",
+              "RelativeDocumentMoniker": "Lab_3\\MainForm.cs",
+              "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\MainForm.cs [Design]",
+              "RelativeToolTip": "Lab_3\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T21:22:35.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\Program.cs",
+              "RelativeDocumentMoniker": "Lab_3\\Program.cs",
+              "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\Program.cs",
+              "RelativeToolTip": "Lab_3\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T21:22:34.101Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
