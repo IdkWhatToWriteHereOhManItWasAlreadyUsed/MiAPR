@@ -40,6 +40,7 @@
             // 
             // pictureBox
             // 
+            pictureBox.BackColor = SystemColors.ActiveCaptionText;
             pictureBox.Location = new Point(291, 22);
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(700, 700);

@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{83E0EA05-4260-4B62-A253-7B5F97A2A0B1}|Test.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83E0EA05-4260-4B62-A253-7B5F97A2A0B1}|Test.csproj|d:\\\u043C\u0438\u0430\u043F\u0440\\lab5\\test\\test\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{83E0EA05-4260-4B62-A253-7B5F97A2A0B1}|Test.csproj|D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{83E0EA05-4260-4B62-A253-7B5F97A2A0B1}|Test.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,6 +41,10 @@
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
@@ -60,7 +64,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAowOgAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAmwNkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T21:01:03.733Z",
               "EditorCaption": ""

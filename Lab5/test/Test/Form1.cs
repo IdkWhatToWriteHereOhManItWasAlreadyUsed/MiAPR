@@ -70,11 +70,12 @@ namespace Test
         {
             using (Graphics g = Graphics.FromImage(graphBitmap))
             {
-                g.Clear(Color.White);
+                // g.Clear(Color.White);
 
+                Pen pen = new Pen(Color.White, 2);
                 // Draw axes
-                g.DrawLine(Pens.Black, CenterX, 0, CenterX, pictureBox.Height); // Y axis
-                g.DrawLine(Pens.Black, 0, CenterY, pictureBox.Width, CenterY);   // X axis
+                g.DrawLine(pen, CenterX, 0, CenterX, pictureBox.Height); // Y axis
+                g.DrawLine(pen, 0, CenterY, pictureBox.Width, CenterY);   // X axis
 
                 // Draw separating function
                 List<PointF> functionPoints = new List<PointF>();
@@ -83,17 +84,17 @@ namespace Test
                     float y = (float)GetY(result, x);
                     functionPoints.Add(new PointF(CenterX + x * Step, CenterY - y * Step));
                 }
-
+                pen = new Pen(Color.Red, 3);
                 if (functionPoints.Count > 1)
                 {
-                    g.DrawLines(Pens.Red, functionPoints.ToArray());
+                    g.DrawLines(pen, functionPoints.ToArray());
                 }
 
                 // Draw points
                 foreach (var point in points)
                 {
                     Color pointColor = point.Class == 0 ? Color.Blue : Color.Green;
-                    int pointSize = 5;
+                    int pointSize = 12;
                     g.FillEllipse(new SolidBrush(pointColor),
                         CenterX + (float)point.X * Step - pointSize / 2,
                         CenterY - (float)point.Y * Step - pointSize / 2,
@@ -214,6 +215,7 @@ namespace Test
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int pointSize = 10;
             List<PointData> points = GenerateRandomPoints(250);
             foreach (PointData point in points)
             {
@@ -227,13 +229,14 @@ namespace Test
                 using (Graphics g = Graphics.FromImage(graphBitmap))
                 {
                     Color pointColor = pointClass == 0 ? Color.Blue : Color.Green;
-                    int pointSize = 10;
+                    
                     g.FillEllipse(new SolidBrush(pointColor),
                         CenterX + (float)point.X * Step  - pointSize / 2,
                         CenterY - (float)point.Y * Step - pointSize / 2,
                         pointSize, pointSize);
-                    pictureBox.Invalidate();
+                    //pictureBox.Invalidate();
                 }
+                DrawGraph();
             }
         }
     }

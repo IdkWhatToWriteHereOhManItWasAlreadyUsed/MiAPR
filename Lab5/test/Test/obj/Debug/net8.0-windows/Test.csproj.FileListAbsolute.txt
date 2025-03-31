@@ -14,3 +14,4 @@ D:\МиАПР\Lab5\test\Test\obj\Debug\net8.0-windows\refint\Test.dll
 D:\МиАПР\Lab5\test\Test\obj\Debug\net8.0-windows\Test.pdb
 D:\МиАПР\Lab5\test\Test\obj\Debug\net8.0-windows\Test.genruntimeconfig.cache
 D:\МиАПР\Lab5\test\Test\obj\Debug\net8.0-windows\ref\Test.dll
+D:\МиАПР\Lab5\test\Test\obj\Debug\net8.0-windows\Test.sourcelink.json
