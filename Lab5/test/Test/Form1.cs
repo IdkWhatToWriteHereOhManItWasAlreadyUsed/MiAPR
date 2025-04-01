@@ -105,7 +105,7 @@ namespace Test
             }
         }
 
-        private string ResultToString(double[] res)
+        private static string ResultToString(double[] res)
         {
             if (res[2] != 0)
             {
@@ -118,28 +118,28 @@ namespace Test
             return $"x={-res[3] / res[0]}";
         }
 
-        private double GetY(double[] func, double x)
+        private static double GetY(double[] func, double x)
         {
             return -(func[0] * x + func[3]) / (func[2] * x + func[1]);
         }
 
-        private double[] PotentialFunction(PointData point)
+        private static double[] PotentialFunction(PointData point)
         {
-            return new double[4]
-            {
+            return
+            [
                 4 * point.X,
                 4 * point.Y,
                 16 * point.X * point.Y,
                 1
-            };
+            ];
         }
 
-        private double GetFunctionValue(double[] func, PointData point)
+        private static double GetFunctionValue(double[] func, PointData point)
         {
             return func[0] * point.X + func[1] * point.Y + func[2] * point.X * point.Y + func[3];
         }
 
-        private double[] SumArrays(double[] a, double[] b)
+        private static double[] SumArrays(double[] a, double[] b)
         {
             int length = Math.Max(a.Length, b.Length);
             double[] temp = new double[length];
@@ -152,7 +152,7 @@ namespace Test
             return temp;
         }
 
-        private double[] MultiplyArrayByScalar(double[] array, double scalar)
+        private static double[] MultiplyArrayByScalar(double[] array, double scalar)
         {
             double[] result = new double[array.Length];
             for (int i = 0; i < array.Length; i++)
@@ -167,7 +167,7 @@ namespace Test
             //
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (double.TryParse(txtX1.Text, out double x) && double.TryParse(txtY1.Text, out double y))
             {
@@ -195,10 +195,10 @@ namespace Test
             }
         }
 
-        private List<PointData> GenerateRandomPoints(int count)
+        private static List<PointData> GenerateRandomPoints(int count)
         {
             List<PointData> randomPoints = new List<PointData>();
-            Random random = new Random();
+            Random random = new();
 
             for (int i = 0; i < count; i++)
             {

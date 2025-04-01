@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +46,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T21:01:03.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs",
@@ -53,21 +66,7 @@
               "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T21:02:01.995Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab5\\test\\Test\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAmwNkAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T21:01:03.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T21:02:01.995Z"
             }
           ]
         }
