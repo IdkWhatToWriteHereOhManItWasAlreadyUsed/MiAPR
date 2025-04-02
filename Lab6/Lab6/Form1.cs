@@ -1,18 +1,122 @@
+using System;
+using System.Windows.Forms.DataVisualization.Charting;
+
 namespace Lab6
 {
-    public class PointWithClass(double x, double y)
-    {
-        public double X { get; set; } = x;
-        public double Y { get; set; } = y;
-        public int ClassNum { get; set; } = -1;
-    }
-
     public partial class Form1 : Form
     {
+        private readonly List<Color> colors = new List<Color>
+        {
+            Color.Red, Color.Blue, Color.DodgerBlue, Color.DarkMagenta, Color.BlueViolet,
+            Color.DeepPink,Color.Firebrick,Color.ForestGreen,Color.MidnightBlue, Color.Green,
+            Color.Aqua, Color.DarkOrchid, Color.RoyalBlue, Color.DarkBlue, Color.Beige,
+            Color.Salmon, Color.Sienna, Color.PowderBlue,  Color.Plum, Color.LightSalmon,
+            Color.DarkOrchid, Color.Olive, Color.YellowGreen, Color.Violet,  Color.Gold,
+            Color.Yellow, Color.LightCyan, Color.LightBlue, Color.Turquoise
+        };
         public Form1()
         {
             InitializeComponent();
+            InitializeChart();
         }
+        private void InitializeChart()
+        {
+            chart1.Series.Clear();
+            chart1.ChartAreas[0].AxisX.ArrowStyle = AxisArrowStyle.Lines;
+            chart1.ChartAreas[0].AxisX.Crossing = 0;
+            chart1.ChartAreas[0].AxisX.IsStartedFromZero = true;
+            chart1.ChartAreas[0].AxisX.Title = "";
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisX.LineWidth = 1;
+            chart1.ChartAreas[0].AxisY.ArrowStyle = AxisArrowStyle.Lines;
+            chart1.ChartAreas[0].AxisY.Crossing = 0;
+            chart1.ChartAreas[0].AxisY.IsStartedFromZero = true;
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.Maximum = 60;
+            chart1.ChartAreas[0].AxisY.Maximum = 10 + 0.01;
+            chart1.ChartAreas[0].AxisY.Minimum = 0;
+            chart1.ChartAreas[0].AxisY.Title = "";
+            chart1.ChartAreas[0].AxisY.Interval = 1;
+            chart1.ChartAreas[0].AxisY.LineWidth = 1;
+        }
+
+        private void VisualizeHierarchy()
+        {
+            var hierarchy = new HierarchyBuilder().BuildHierarchy(points);
+
+            DrawDendrogram(hierarchy);
+        }
+
+        private void DrawDendrogram(ClassNode root)
+        {
+            chart1.Series.Clear();
+
+            Series series = new Series("Dendrogram")
+            {
+                ChartType = SeriesChartType.Line,
+                CustomProperties = "DrawSideBySide=False",
+       
+            };
+
+            series.BorderWidth = 3;       // Толщина линии
+            series.Color = Color.Black;
+            // Рекурсивно добавляем элементы дендрограммы
+            double height = getDendrogramHeight(root) + 10;
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.Maximum = points.Length;
+            chart1.ChartAreas[0].AxisY.Maximum = height;
+            chart1.ChartAreas[0].AxisY.Minimum = 0;
+            AddDendrogramNodes(series, root, points.Length, height);
+
+            chart1.Series.Add(series);
+            chart1.Invalidate();
+        }
+
+        private double getDendrogramHeight(ClassNode root)
+        {
+            if (root == null)
+                return 0;
+            double h = 0;
+
+            if (root.Child != null) 
+            {
+                h += getDendrogramHeight(root.Child);
+                h += root.distanceToChild;
+            }
+            return h;
+        }
+
+        private void AddDendrogramNodes(Series series, ClassNode node, double xPos, double yStart)
+        {
+            if (node == null) return;
+           
+            foreach (var point in node.Points)
+            {
+                series.Points.AddXY(xPos, yStart);
+                series.Points[series.Points.Count - 1].Color = PointVisualizer.GetClassColor(node.ClassNum);
+                series.Points.AddXY(xPos, 0);
+                series.Points[series.Points.Count - 1].Color = PointVisualizer.GetClassColor(node.ClassNum);
+                series.Points.AddXY(xPos, yStart);
+                series.Points[series.Points.Count - 1].Color = PointVisualizer.GetClassColor(node.ClassNum);
+                xPos--;
+            }
+            double childY = 0;
+            if (node.Child != null)
+            {
+                childY = yStart - node.distanceToChild;
+                series.Points.AddXY(xPos, childY);
+            }
+
+            if (node.Child != null)
+            {
+                AddDendrogramNodes(series, node.Child,
+                                 xPos++, childY);
+            }
+        }
+    
+
+
+
 
         PointWithClass[] points;
         double[,] distances;
@@ -20,21 +124,27 @@ namespace Lab6
 
         private void initButton_Click(object sender, EventArgs e)
         {
+
             drawer = new(pictureBox1, dataGridView1);
-            points = GenerateRandomPoints(200, 40, 320);        
+            points = GenerateRandomPoints(Convert.ToInt32(textBox1.Text), 40, 150);        
             drawer.DrawPoints(points);
             drawer.ShowDistanceTable(points);
             distances = CalculateDistanceTable(points);
+            
             pictureBox1.Update();
         }
 
         private void ClassifyButton_Click(object sender, EventArgs e)
-        {
-            
+        {      
+            if (radioButton2.Checked)
+            {
+
+            }
             ClassifyPoints();
             drawer.DrawPoints(points);
             drawer.ShowDistanceTable(points);
             pictureBox1.Update();
+            VisualizeHierarchy();
         }
 
         private void ClassifyPoints()

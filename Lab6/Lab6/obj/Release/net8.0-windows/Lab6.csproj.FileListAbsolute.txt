@@ -3,7 +3,6 @@ D:\МиАПР\Lab6\Lab6\bin\Release\net8.0-windows\Lab6.deps.json
 D:\МиАПР\Lab6\Lab6\bin\Release\net8.0-windows\Lab6.runtimeconfig.json
 D:\МиАПР\Lab6\Lab6\bin\Release\net8.0-windows\Lab6.dll
 D:\МиАПР\Lab6\Lab6\bin\Release\net8.0-windows\Lab6.pdb
-D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.PointWithClass.resources
 D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.csproj.GenerateResource.cache
 D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.GeneratedMSBuildEditorConfig.editorconfig
 D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.AssemblyInfoInputs.cache
@@ -15,3 +14,4 @@ D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\refint\Lab6.dll
 D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.pdb
 D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.genruntimeconfig.cache
 D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\ref\Lab6.dll
+D:\МиАПР\Lab6\Lab6\obj\Release\net8.0-windows\Lab6.Form1.resources

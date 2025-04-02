@@ -1,0 +1,8 @@
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.csproj.AssemblyReference.cache
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.Form1.resources
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.csproj.GenerateResource.cache
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.GeneratedMSBuildEditorConfig.editorconfig
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.AssemblyInfoInputs.cache
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.AssemblyInfo.cs
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.csproj.CoreCompileInputs.cache
+D:\МиАПР\Lab6\Lab6\obj\Release\net7.0-windows7.0\Lab6.sourcelink.json

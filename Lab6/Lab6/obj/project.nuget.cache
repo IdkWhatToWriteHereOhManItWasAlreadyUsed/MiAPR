@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "X2/f4kIXSNk=",
+  "dgSpecHash": "wf3KeWddKjg=",
   "success": true,
   "projectFilePath": "D:\\МиАПР\\Lab6\\Lab6\\Lab6.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Дима\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512"
+  ],
   "logs": []
 }

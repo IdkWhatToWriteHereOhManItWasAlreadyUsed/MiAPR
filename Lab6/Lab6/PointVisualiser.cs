@@ -27,8 +27,8 @@ public class PointVisualizer
             foreach (var point in points)
             {
                 // Масштабируем координаты под размер PictureBox
-                int x = (int)(point.X * pictureBoxWidth / 400);
-                int y = pictureBoxHeight - (int)(point.Y * pictureBoxHeight / 400);
+                int x = (int)(point.X * pictureBoxWidth / 177)  ;
+                int y = pictureBoxHeight - (int)(point.Y * pictureBoxHeight / 177);
 
                 g.FillEllipse(GetClassBrush(point.ClassNum), x - pointSize / 2, y - pointSize / 2, pointSize, pointSize);
                // g.DrawEllipse(Pens.Black, x - pointSize / 2, y - pointSize / 2, pointSize, pointSize);
@@ -104,7 +104,7 @@ public class PointVisualizer
 
         // Создаем таблицу для DataGridView
         System.Data.DataTable dt = new DataTable();
-
+      //  System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.
         // Добавляем колонки
         dt.Columns.Add("Точка", typeof(string));
         for (int i = 0; i < count; i++)
