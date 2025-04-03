@@ -5,9 +5,9 @@
         public int ClassNum { get; }
         public List<PointWithClass> Points { get; }
         public ClassNode Child { get; set; }
-
         public double distanceToChild { get; set; }
-        public ClassNode(int classId, IEnumerable<PointWithClass> points, double DistanceToChild )
+
+        public ClassNode(int classId, IEnumerable<PointWithClass> points, double DistanceToChild)
         {
             ClassNum = classId;
             Points = points.Where(p => p.ClassNum == classId).ToList();
@@ -23,6 +23,13 @@
 
     public class HierarchyBuilder
     {
+        private readonly int _distanceMode; // 0 - максимальное расстояние, 1 - минимальное расстояние
+
+        public HierarchyBuilder(int distanceMode = 1)
+        {
+            _distanceMode = distanceMode;
+        }
+
         public ClassNode BuildHierarchy(PointWithClass[] allPoints)
         {
             if (allPoints == null || !allPoints.Any())
@@ -33,11 +40,8 @@
             return root;
         }
 
-        public double distanceToChild = 0;
-
         private void BuildHierarchyRecursive(ClassNode current, PointWithClass[] allPoints, HashSet<int> processedClasses)
         {
-            // Находим ближайший непрошедший класс
             int? nearestClass = FindNearestClass(current, allPoints, processedClasses);
 
             if (nearestClass.HasValue)
@@ -49,7 +53,7 @@
             }
         }
 
-        public static double FindMinDistanceBetweenClasses(PointWithClass[] points, int class1, int? class2)
+        public double FindMinDistanceBetweenClasses(PointWithClass[] points, int class1, int? class2)
         {
             if (class1 == class2)
                 return 0;
@@ -57,33 +61,30 @@
                 throw new ArgumentNullException(nameof(points));
 
             var pointsList = points.ToList();
-            double minDistance = double.MaxValue;
+            double extremeDistance = _distanceMode == 0 ? double.MinValue : double.MaxValue;
 
-            // Получаем все точки первого класса
             var class1Points = pointsList.Where(p => p.ClassNum == class1).ToList();
-            // Получаем все точки второго класса
             var class2Points = pointsList.Where(p => p.ClassNum == class2).ToList();
 
-            // Если один из классов не содержит точек
             if (class1Points.Count == 0 || class2Points.Count == 0)
             {
                 throw new ArgumentException("Один из классов не содержит точек");
             }
 
-            // Перебираем все пары точек из разных классов
             foreach (var p1 in class1Points)
             {
                 foreach (var p2 in class2Points)
                 {
                     double distance = p1.DistanceTo(p2);
-                    if (distance < minDistance)
+                    if ((_distanceMode == 1 && distance < extremeDistance) ||
+                        (_distanceMode == 0 && distance > extremeDistance))
                     {
-                        minDistance = distance;
+                        extremeDistance = distance;
                     }
                 }
             }
 
-            return minDistance;
+            return extremeDistance;
         }
 
         private int? FindNearestClass(ClassNode current, PointWithClass[] allPoints, HashSet<int> processedClasses)
@@ -97,41 +98,44 @@
             if (!remainingClasses.Any())
                 return null;
 
-            double minDistance = double.MaxValue;
-            int nearestClass = -1;
+            double extremeDistance = _distanceMode == 0 ? double.MinValue : double.MaxValue;
+            int extremeClass = -1;
 
             foreach (var classId in remainingClasses)
             {
-                double classDistance = CalculateMinDistanceBetweenClasses(current.Points,
+                double classDistance = CalculateMinDistanceBetweenClasses(
+                    current.Points,
                     allPoints.Where(p => p.ClassNum == classId));
 
-                if (classDistance < minDistance)
+                if ((_distanceMode == 1 && classDistance < extremeDistance) ||
+                    (_distanceMode == 0 && classDistance > extremeDistance))
                 {
-                    minDistance = classDistance;
-                    nearestClass = classId;
+                    extremeDistance = classDistance;
+                    extremeClass = classId;
                 }
             }
-            distanceToChild = minDistance;
-            return nearestClass;
+
+            return extremeClass;
         }
 
-        private static double CalculateMinDistanceBetweenClasses(IEnumerable<PointWithClass> class1, IEnumerable<PointWithClass> class2)
+        private double CalculateMinDistanceBetweenClasses(IEnumerable<PointWithClass> class1, IEnumerable<PointWithClass> class2)
         {
-            double minDistance = double.MaxValue;
+            double extremeDistance = _distanceMode == 0 ? double.MinValue : double.MaxValue;
 
             foreach (var p1 in class1)
             {
                 foreach (var p2 in class2)
                 {
                     double distance = p1.DistanceTo(p2);
-                    if (distance < minDistance)
+                    if ((_distanceMode == 1 && distance < extremeDistance) ||
+                        (_distanceMode == 0 && distance > extremeDistance))
                     {
-                        minDistance = distance;
+                        extremeDistance = distance;
                     }
                 }
             }
 
-            return minDistance;
+            return extremeDistance;
         }
     }
 }

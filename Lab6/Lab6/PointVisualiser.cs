@@ -103,47 +103,50 @@ public class PointVisualizer
         }
 
         // Создаем таблицу для DataGridView
-        System.Data.DataTable dt = new DataTable();
-      //  System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.
-        // Добавляем колонки
-        dt.Columns.Add("Точка", typeof(string));
-        for (int i = 0; i < count; i++)
+       DataTable dt = new DataTable();
+    dt.Columns.Add("Точка", typeof(string));
+    for (int i = 0; i < count; i++)
+    {
+        dt.Columns.Add($"Точка {i + 1} (Кл.{sortedPoints[i].ClassNum})", typeof(double));
+    }
+
+    // Добавляем строки и сразу кэшируем цвета
+    var colorCache = new Dictionary<int, Color>();
+    for (int i = 0; i < count; i++)
+    {
+        DataRow row = dt.NewRow();
+        row[0] = $"Точка {i + 1} (Кл.{sortedPoints[i].ClassNum})";
+        
+        for (int j = 0; j < count; j++)
         {
-            dt.Columns.Add($"Точка {i + 1} (Кл.{sortedPoints[i].ClassNum})", typeof(double));
+            row[j + 1] = Math.Round(distances[i, j], 2);
         }
-
-        // Добавляем строки
-        for (int i = 0; i < count; i++)
+        
+        dt.Rows.Add(row);
+        
+        // Кэшируем цвет
+        if (!colorCache.ContainsKey(sortedPoints[i].ClassNum))
         {
-            DataRow row = dt.NewRow();
-            row[0] = $"Точка {i + 1} (Кл.{sortedPoints[i].ClassNum})";
-
-            for (int j = 0; j < count; j++)
-            {
-                row[j + 1] = Math.Round(distances[i, j], 2);
-            }
-
-            dt.Rows.Add(row);
+            colorCache[sortedPoints[i].ClassNum] = GetClassColor(sortedPoints[i].ClassNum);
         }
+    }
 
-        // Настраиваем DataGridView
-        dataGridView.DataSource = dt;
-        dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        // Добавляем цветовую маркировку для классов
-        dataGridView.RowPrePaint += (sender, e) =>
+    dataGridView.DataSource = dt;
+    dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+    // Оптимизированный обработчик
+    dataGridView.CellFormatting += (sender, e) =>
+    {
+        if (e.RowIndex >= 0 && e.RowIndex < sortedPoints.Length)
         {
-            try
+            int classNum = sortedPoints[e.RowIndex].ClassNum;
+            if (colorCache.ContainsKey((int)classNum))
             {
-                var row = dataGridView.Rows[e.RowIndex];
-                int classNum = sortedPoints[e.RowIndex].ClassNum;
-                row.DefaultCellStyle.BackColor = GetClassColor(classNum);
-                row.DefaultCellStyle.ForeColor = Color.Black;
-            }
-            catch 
-            { 
-            }
-            
-        };
+                dataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = colorCache[classNum];
+            }        
+            dataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+        }
+    };
     }
     private double CalculateDistance(PointWithClass a, PointWithClass b)
     {

@@ -5,15 +5,7 @@ namespace Lab6
 {
     public partial class Form1 : Form
     {
-        private readonly List<Color> colors = new List<Color>
-        {
-            Color.Red, Color.Blue, Color.DodgerBlue, Color.DarkMagenta, Color.BlueViolet,
-            Color.DeepPink,Color.Firebrick,Color.ForestGreen,Color.MidnightBlue, Color.Green,
-            Color.Aqua, Color.DarkOrchid, Color.RoyalBlue, Color.DarkBlue, Color.Beige,
-            Color.Salmon, Color.Sienna, Color.PowderBlue,  Color.Plum, Color.LightSalmon,
-            Color.DarkOrchid, Color.Olive, Color.YellowGreen, Color.Violet,  Color.Gold,
-            Color.Yellow, Color.LightCyan, Color.LightBlue, Color.Turquoise
-        };
+        int Mode = 1;
         public Form1()
         {
             InitializeComponent();
@@ -40,9 +32,9 @@ namespace Lab6
             chart1.ChartAreas[0].AxisY.LineWidth = 1;
         }
 
-        private void VisualizeHierarchy()
+        private void VisualizeHierarchy(int mode)
         {
-            var hierarchy = new HierarchyBuilder().BuildHierarchy(points);
+            var hierarchy = new HierarchyBuilder(mode).BuildHierarchy(points);
 
             DrawDendrogram(hierarchy);
         }
@@ -55,7 +47,7 @@ namespace Lab6
             {
                 ChartType = SeriesChartType.Line,
                 CustomProperties = "DrawSideBySide=False",
-       
+
             };
 
             series.BorderWidth = 3;       // Толщина линии
@@ -78,7 +70,7 @@ namespace Lab6
                 return 0;
             double h = 0;
 
-            if (root.Child != null) 
+            if (root.Child != null)
             {
                 h += getDendrogramHeight(root.Child);
                 h += root.distanceToChild;
@@ -89,7 +81,7 @@ namespace Lab6
         private void AddDendrogramNodes(Series series, ClassNode node, double xPos, double yStart)
         {
             if (node == null) return;
-           
+
             foreach (var point in node.Points)
             {
                 series.Points.AddXY(xPos, yStart);
@@ -113,7 +105,7 @@ namespace Lab6
                                  xPos++, childY);
             }
         }
-    
+
 
 
 
@@ -124,65 +116,75 @@ namespace Lab6
 
         private void initButton_Click(object sender, EventArgs e)
         {
-
             drawer = new(pictureBox1, dataGridView1);
-            points = GenerateRandomPoints(Convert.ToInt32(textBox1.Text), 40, 150);        
+            points = GenerateRandomPoints(Convert.ToInt32(textBox1.Text), 40, 150);
             drawer.DrawPoints(points);
             drawer.ShowDistanceTable(points);
             distances = CalculateDistanceTable(points);
-            
+
             pictureBox1.Update();
         }
 
-        private void ClassifyButton_Click(object sender, EventArgs e)
-        {      
-            if (radioButton2.Checked)
-            {
-
+        private void ResetClasses()
+        {
+            foreach (var point in points) {
+                point.ClassNum = -1;
             }
+        }
+
+        private void ClassifyButton_Click(object sender, EventArgs e)
+        {
+            int mode = 0;
+            if (!radioButton1.Checked)
+            {
+                mode = 1;       
+            }
+            Mode = mode;
+            ResetClasses();
             ClassifyPoints();
             drawer.DrawPoints(points);
             drawer.ShowDistanceTable(points);
             pictureBox1.Update();
-            VisualizeHierarchy();
+            VisualizeHierarchy(mode);
         }
 
         private void ClassifyPoints()
         {
-
             while (points.Any(p => p.ClassNum == -1))
             {
-                int classCounter = points.Max(p => p.ClassNum) + 1; 
+                int classCounter = points.Max(p => p.ClassNum) + 1;
 
                 for (int i = 0; i < points.Length; i++)
                 {
                     if (points[i].ClassNum != -1) continue;
-                    double minDistance = double.MaxValue;
-                    int nearestPointIndex = -1;
+
+                    double extremeDistance = Mode == 1 ? double.MaxValue : double.MinValue;
+                    int extremePointIndex = -1;
 
                     for (int j = 0; j < points.Length; j++)
                     {
                         if (i == j) continue;
 
                         double dist = distances[i, j];
-                        if (dist <= minDistance)
+                        if ((Mode == 1 && dist <= extremeDistance) ||
+                            (Mode == 0 && dist >= extremeDistance))
                         {
-                            minDistance = dist;
-                            nearestPointIndex = j;
+                            extremeDistance = dist;
+                            extremePointIndex = j;
                         }
                     }
 
-                    if (nearestPointIndex != -1)
+                    if (extremePointIndex != -1)
                     {
-                        if (points[nearestPointIndex].ClassNum == -1)
+                        if (points[extremePointIndex].ClassNum == -1)
                         {
                             points[i].ClassNum = classCounter;
-                            points[nearestPointIndex].ClassNum = classCounter;
+                            points[extremePointIndex].ClassNum = classCounter;
                             classCounter++;
                         }
                         else
                         {
-                            points[i].ClassNum = points[nearestPointIndex].ClassNum;
+                            points[i].ClassNum = points[extremePointIndex].ClassNum;
                         }
                     }
                     else
@@ -201,7 +203,6 @@ namespace Lab6
                 }
             }
         }
-
         // Генерация массива случайных точек
         public static PointWithClass[] GenerateRandomPoints(int count, int min, int max)
         {
@@ -246,6 +247,11 @@ namespace Lab6
             double dx = a.X - b.X;
             double dy = a.Y - b.Y;
             return Math.Sqrt(dx * dx + dy * dy);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

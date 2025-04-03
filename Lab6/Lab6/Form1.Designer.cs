@@ -31,9 +31,9 @@ namespace Lab6
         /// </summary>
         private void InitializeComponent()
         {
-            ChartArea chartArea1 = new ChartArea();
-            Legend legend1 = new Legend();
-            Series series1 = new Series();
+            ChartArea chartArea3 = new ChartArea();
+            Legend legend3 = new Legend();
+            Series series3 = new Series();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
             initButton = new Button();
@@ -50,7 +50,7 @@ namespace Lab6
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(735, 12);
+            pictureBox1.Location = new Point(220, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(200, 200);
             pictureBox1.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace Lab6
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(209, 12);
+            dataGridView1.Location = new Point(12, 286);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(500, 500);
             dataGridView1.TabIndex = 1;
@@ -87,7 +87,7 @@ namespace Lab6
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 12);
+            textBox1.Location = new Point(32, 35);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 4;
@@ -95,7 +95,7 @@ namespace Lab6
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 41);
+            label1.Location = new Point(32, 77);
             label1.Name = "label1";
             label1.Size = new Size(95, 15);
             label1.TabIndex = 5;
@@ -103,17 +103,17 @@ namespace Lab6
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-            chart1.Location = new Point(941, 12);
+            chartArea3.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chart1.Legends.Add(legend3);
+            chart1.Location = new Point(534, 12);
             chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart1.Series.Add(series1);
-            chart1.Size = new Size(736, 500);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chart1.Series.Add(series3);
+            chart1.Size = new Size(1143, 774);
             chart1.TabIndex = 6;
             chart1.Text = "chart2";
             // 
@@ -121,18 +121,19 @@ namespace Lab6
             // 
             radioButton1.AutoSize = true;
             radioButton1.Checked = true;
-            radioButton1.Location = new Point(752, 253);
+            radioButton1.Location = new Point(220, 229);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(85, 19);
             radioButton1.TabIndex = 7;
             radioButton1.TabStop = true;
             radioButton1.Text = "Максимум";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(752, 278);
+            radioButton2.Location = new Point(220, 254);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(81, 19);
             radioButton2.TabIndex = 8;
@@ -143,7 +144,7 @@ namespace Lab6
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1557, 523);
+            ClientSize = new Size(1557, 812);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(chart1);
