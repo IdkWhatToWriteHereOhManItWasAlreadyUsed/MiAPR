@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|d:\\\u043C\u0438\u0430\u043F\u0440\\lab3\\lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|solutionrelative:lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|d:\\\u043C\u0438\u0430\u043F\u0440\\lab3\\lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{114177EC-C0BE-46AA-926B-02AE155A6AB2}|Lab_3\\Lab_3.csproj|solutionrelative:lab_3\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -52,14 +52,10 @@
               "RelativeDocumentMoniker": "Lab_3\\MainForm.cs",
               "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\MainForm.cs",
               "RelativeToolTip": "Lab_3\\MainForm.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA1wCIAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAwwHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T21:22:36.92Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
@@ -70,7 +66,8 @@
               "ToolTip": "D:\\\u041C\u0438\u0410\u041F\u0420\\Lab3\\Lab_3\\MainForm.cs [Design]",
               "RelativeToolTip": "Lab_3\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T21:22:35.511Z"
+              "WhenOpened": "2025-03-30T21:22:35.511Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
